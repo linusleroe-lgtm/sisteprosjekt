@@ -5,13 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bob Dylan</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="media/square.png">
+
 
 </head>
 <body>
-    <header></header>
+   
+<header>
+    
+        
+    <nav >
+      <a href="albums.html">Album</a>
+      <a href="history.html">Historie</a>
+      <a href="index.html"><img src="media/bob logo.jpg" alt=""></a>
+      <a href="game.html">Spill</a>
+      <a href="tt.html">Tours</a>
+    </nav>
 
-    <h1>overskrift</h1>
 
+
+</header>
+
+    <div class="knappDiv">
+        <button id="musikknapp" onclick="toggleMusic()">▶</button>
+        <audio id="myAudio" src="media/Bob Dylan - Like A Rolling Stone.mp3" loop></audio>
+        <button id="modeBtn" onclick="toggleMode()">LIGHT MODE</button>
+
+    </div>
+
+<section id="s2">
+    <h3>Welcome to</h3>
+    <h2>Bob Dylan's</h2>
+    <h1>OFFICIAL WEBSITE</h1>
+    <h3>Engineered by Linus Lerø</h3>
+</section>
+
+
+<section id="s1">
+    <h2>BOB DYLAN</h2>
+</section>
+
+
+
+<section id="s3">
+    <h2>Browse our activities</h2>
+
+
+    <div class="container">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+
+
+    </div>
+</section>
+
+   
+
+
+<script>
+    function toggleMusic() {
+    const audio = document.getElementById('myAudio');
+    const btn = document.getElementById('musikknapp');
+    if (audio.paused) {
+        audio.play();
+        btn.textContent = '⏸';
+    } else {
+        audio.pause();
+        btn.textContent = '▶';
+    }
+}
+
+
+function toggleMode() {
+    const btn = document.getElementById('modeBtn');
+    document.body.classList.toggle('light');
+    if (document.body.classList.contains('light')) {
+        btn.textContent = 'LSD MODE';
+        btn.style.borderColor = 'white';
+        btn.style.color = 'red';
+
+    } else {
+        btn.textContent = 'LIGHT MODE';
+        btn.style.borderColor = 'white';
+        btn.style.color = 'white';
+    }
+}
+</script>
+
+    
 
 
 </body>

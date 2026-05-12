@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+
+
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +13,14 @@ img {
 
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+body {
+    background-image: url(media/bobdylanbak.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;  
+    background-position: center;  
+    height: auto;
+}
 
 h1 {
     font-family: "Rye", serif;
@@ -18,6 +28,204 @@ h1 {
     font-style: normal;
 }
 
-section {
+header {
+    background-color: white;
+    height: 600px;
+    overflow: hidden;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-left: -50px;
+    
+ }
+
+nav a {
+    text-decoration: none;
+    font-family: rye;
+    color: black;
+    font-size: 100px;
+    transition: transform 0.2s ease, color 0.2s;
+}
+
+nav img {
+    width: 370px;
+}
+
+nav a:hover {
+  transform: translateY(-3px) scale(1.1);
+  color: #aaa;
+}
+
+
+
+#s1 {
+    display: flex;
+    justify-content: right;
+}
+
+#s1 h2 {
+    writing-mode: vertical-rl;
+    
+    color: white;
+    font-size: 700px;
+    white-space: nowrap;
+}
+
+#s2 {
+margin-top: 600px;
+}
+
+#s2 h3, h2, h1 {
+    color: white;
+    text-align: center;
+
+}
+
+#s2 h3 {
+    font-size: 100px;
+    margin-bottom: 80px;
+}
+#s2 h2 {
+    font-size: 150px;
+    font-family: rye;
+    font-weight: 100;
+    margin-bottom: 80px;
+}
+#s2 h1 {
+    font-size: 300px;
+    margin-bottom: 80px;
+}
+
+.knappDiv {
+    display: flex;
+    justify-content: left;
+    margin-top: 50px;
+    border: white solid 2px ;
+    border-radius: 20px;
+    width: fit-content;
+    background-color: gray;
+}
+
+
+#musikknapp {
+    background: none;
+    border: none;
+    font-size: 100px;
+    cursor: pointer;
+    color: white;
+     }
+
+
+ #modeBtn {
+    background: none;
+    border: 1.5px solid white;
+    border-radius: 100px;
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+    padding: 5px 14px;
+    cursor: pointer;
+    letter-spacing: 0.08em;
+    margin-left: 20px;
+}
+
+nav.light {
+    background-color: white;
+}
+
+body.light header {
+    background-color: blue;
+}
+
+body.light nav a {
+    color: black;
+}
+
+body.light {
+    background-image: url(media/bakgrunnLSD.png);
+}
+
+
+
+
+
+/* Albums page */
+
+#b2 {
+    background-image: url(media/backgroundalbum.jpg);
+}
+
+#b2 section {
+    margin-top: 100px;
+}
+
+
+.containerAlbum {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: fit-content;      
+    margin: 0 auto;;
+    row-gap: 15px;
+    column-gap: 15px;
+    justify-content: space-around;
     
 }
+
+.enkeltAlbum {
+    width: 1300px;
+    height: 1300px;
+    border: solid black 5px;
+    background-color: gray;
+    position: relative;      /* mangler — trengs for at teksten posisjonerer seg inni */
+    overflow: hidden;        /* mangler — klipper teksten som er skjult */
+    transition: transform 0.3s ease;
+
+}
+.enkeltAlbum img {
+    width: 100%;
+    height: 100%;
+    
+}
+.enkeltAlbum:hover {
+    transform: scale(1.05);  /* pop-effekten skal HER */
+    overflow: visible;
+}
+
+
+
+
+
+.enkeltAlbumText {
+    position: absolute;
+    bottom: -150px;        /* a bit more since there's more text now */
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    transition: bottom 0.3s ease;
+}
+
+.enkeltAlbum:hover .enkeltAlbumText {
+    bottom: 0;
+  
+}
+
+.album-title {
+    margin: 0;
+    font-size: 60px;
+    font-weight: 500;
+}
+
+.album-year {
+    margin: 4px 0 0;
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.7);   /* slightly muted */
+}
+
