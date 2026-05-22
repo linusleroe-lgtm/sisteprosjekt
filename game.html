@@ -7,21 +7,190 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="media/square.png">
 </head>
-<body>
+<body id="bg">
        
 <header>
     
         
     <nav >
       <a href="albums.html">Album</a>
-      <a href="history.html">Historie</a>
+      <a href="https://buy.heavensdoor.com/">Whiskey</a>
       <a href="index.html"><img src="media/bob logo.jpg" alt=""></a>
       <a href="game.html">Spill</a>
       <a href="tt.html">Tours</a>
     </nav>
-
-
-
 </header>
+
+
+<div class="info-boks" id="infoBoks">
+  <p id="infoTekst">?</p>
+  <div class="info-innhold">
+    <p>Slik spiller du:</p>
+    <p>To sanger vises. Gjett om sang B har flere eller færre Spotify-avspillinger enn sang A.</p>
+    <p>Trykk Higher hvis du tror den har flere, eller <strong>Lower</strong> hvis færre.</p>
+    <p>Hold streaken i gang så lenge du kan!</p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="containeroppe">
+        <h1>Higher or Lower</h1>
+        <h2>Score:</h2>
+    </div>
+
+    <div class="knapper">
+        <button id="higher"><p>Higher</p></button>
+        <button id="lower"><p>Lower</p></button>
+    </div>
+
+<div class="containerkort">
+    <div class="Kort">
+        <h1>Sang:</h1>
+        <h1 id="sang-a"></h1>
+        <h2>Album:</h2>
+        <h2 id="album-a"></h2>
+        <h2>Streams:</h2>
+        <h2 id="streams-a"></h2>
+    </div>
+    <div class="Kort">
+        <h1>Sang:</h1>
+        <h1 id="sang-b"></h1>
+        <h2>Album:</h2>
+        <h2 id="album-b"></h2>
+        <h2>Streams:</h2>
+        <h2 id="streams-b"></h2>
+    </div>
+</div>
+<h2 id="scoreDisplay">Score: 0</h2>
+<p id="feedback"></p>
+
+
+
+
+
+
+
+
+
+    <script>
+
+
+        document.getElementById("infoBoks").addEventListener("click", function() {
+        this.classList.toggle("åpen");
+            });
+
+
+
+        const songs = [
+  { title: "Make You Feel My Love", album: "Live 1961-2000", streams: 320000000 },
+  { title: "Knockin' on Heaven's Door", album: "Pat Garrett & Billy the Kid", streams: 210000000 },
+  { title: "Like a Rolling Stone", album: "Highway 61 Revisited", streams: 112000000 },
+  { title: "Blowin' in the Wind", album: "The Freewheelin' Bob Dylan", streams: 98000000 },
+  { title: "Mr. Tambourine Man", album: "Bringing It All Back Home", streams: 87000000 },
+  { title: "Forever Young", album: "Planet Waves", streams: 83000000 },
+  { title: "The Times They Are A-Changin'", album: "The Times They Are A-Changin'", streams: 76000000 },
+  { title: "Tangled Up in Blue", album: "Blood on the Tracks", streams: 68000000 },
+  { title: "Don't Think Twice, It's All Right", album: "The Freewheelin' Bob Dylan", streams: 62000000 },
+  { title: "Lay Lady Lay", album: "Nashville Skyline", streams: 57000000 },
+  { title: "Hurricane", album: "Desire", streams: 54000000 },
+  { title: "It Ain't Me, Babe", album: "Another Side of Bob Dylan", streams: 44000000 },
+  { title: "Subterranean Homesick Blues", album: "Bringing It All Back Home", streams: 45000000 },
+  { title: "Simple Twist of Fate", album: "Blood on the Tracks", streams: 38000000 },
+  { title: "Shelter from the Storm", album: "Blood on the Tracks", streams: 41000000 },
+  { title: "Girl from the North Country", album: "The Freewheelin' Bob Dylan", streams: 36000000 },
+  { title: "The Man in Me", album: "New Morning", streams: 34000000 },
+  { title: "I Want You", album: "Blonde on Blonde", streams: 32000000 },
+  { title: "Just Like a Woman", album: "Blonde on Blonde", streams: 31000000 },
+  { title: "Rainy Day Women #12 & 35", album: "Blonde on Blonde", streams: 29000000 },
+  { title: "Isis", album: "Desire", streams: 27000000 },
+  { title: "One More Cup of Coffee", album: "Desire", streams: 26000000 },
+  { title: "All Along the Watchtower", album: "John Wesley Harding", streams: 48000000 },
+  { title: "Quinn the Eskimo", album: "Self Portrait", streams: 14000000 },
+  { title: "Positively 4th Street", album: "Singles", streams: 23000000 },
+  { title: "Maggie's Farm", album: "Bringing It All Back Home", streams: 21000000 },
+  { title: "A Hard Rain's A-Gonna Fall", album: "The Freewheelin' Bob Dylan", streams: 19000000 },
+  { title: "It's All Over Now, Baby Blue", album: "Bringing It All Back Home", streams: 18000000 },
+  { title: "Desolation Row", album: "Highway 61 Revisited", streams: 17000000 },
+  { title: "Idiot Wind", album: "Blood on the Tracks", streams: 16000000 },
+  { title: "Sara", album: "Desire", streams: 15000000 }, 
+    ];
+
+
+let score = 0;
+let current, next, answered;
+
+function randomSong() {
+  let song;
+  do {
+    song = songs[Math.floor(Math.random() * songs.length)];
+  } while (song.title === (current && current.title) || song.title === (next && next.title));
+  return song;
+}
+function fmt(n) { return (n / 1000000).toFixed(1) + "M"; }
+
+function loadRound() {
+  answered = false;
+  document.getElementById("sang-a").textContent = current.title;
+  document.getElementById("album-a").textContent = current.album;
+  document.getElementById("streams-a").textContent = fmt(current.streams);
+  document.getElementById("sang-b").textContent = next.title;
+  document.getElementById("album-b").textContent = next.album;
+  document.getElementById("streams-b").textContent = "?";
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("higher").disabled = false;
+  document.getElementById("lower").disabled = false;
+}
+
+function guess(dir) {
+  if (answered) return;
+  answered = true;
+
+  document.getElementById("streams-b").textContent = fmt(next.streams);
+  document.getElementById("higher").disabled = true;
+  document.getElementById("lower").disabled = true;
+
+  const correct = (dir === "higher" && next.streams > current.streams) ||
+                  (dir === "lower" && next.streams < current.streams);
+
+  const fb = document.getElementById("feedback");
+
+  if (correct) {
+    score++;
+    document.getElementById("scoreDisplay").textContent = "Score: " + score;
+    fb.textContent = "✓ Riktig!";
+    fb.style.color = "lightgreen";
+    setTimeout(() => {
+      current = next;
+        next = randomSong();
+      loadRound();
+    }, 1200);
+  } else {
+    fb.textContent = "✗ Feil! Game over. Poeng: " + score;
+    fb.style.color = "salmon";
+    score = 0;
+    setTimeout(() => {
+      current = next;
+    next = randomSong();
+      document.getElementById("scoreDisplay").textContent = "Score: 0";
+      loadRound();
+    }, 2500);
+  }
+}
+
+document.getElementById("higher").addEventListener("click", () => guess("higher"));
+document.getElementById("lower").addEventListener("click", () => guess("lower"));
+
+// Start
+current = randomSong();
+next = randomSong();
+loadRound();
+    
+    </script>
 </body>
 </html>

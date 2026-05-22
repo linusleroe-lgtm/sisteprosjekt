@@ -16,7 +16,7 @@
         
     <nav >
       <a href="albums.html">Album</a>
-      <a href="history.html">Historie</a>
+      <a href="https://buy.heavensdoor.com/">Whiskey</a>
       <a href="index.html"><img src="media/bob logo.jpg" alt=""></a>
       <a href="game.html">Spill</a>
       <a href="tt.html">Tours</a>
@@ -29,7 +29,7 @@
     <div class="knappDiv">
         <button id="musikknapp" onclick="toggleMusic()">▶</button>
         <audio id="myAudio" src="media/Bob Dylan - Like A Rolling Stone.mp3" loop></audio>
-        <button id="modeBtn" onclick="toggleMode()">LIGHT MODE</button>
+        <button id="modeBtn" onclick="toggleMode()">L-S-D Mode</button>
 
     </div>
 
@@ -52,15 +52,37 @@
 
 
     <div class="container">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <a href="https://buy.heavensdoor.com/"><div class="aktivitet">
+            <img src="media/whiskey.png" alt="">
+            <div class="textoppå">Whiskey</div>
+        </div></a>
+        <a href="albums.html"><div class="aktivitet">
+            <img src="media/sealbum.png" alt="">
+            <div class="textoppå">Album</div>
+        </div></a>
+        <a href=""><div class="aktivitet">
+            <img src="media/bobspiller.png" alt="">
+            <div class="textoppå">Spill</div>
+        </div></a>
+        <a href=""><div class="aktivitet">
+            <img src="media/sealbum.png" alt="">
+            <div class="textoppå">Tours and Tickets</div>
+        </div></a>
 
 
     </div>
 </section>
 
+<footer>
+    <div class="footercontainer">
+        <h2>Follow Bob Dylan:</h2>
+        <a href="https://x.com/bobdylan"><p>X</p></a>
+        <a href="https://www.instagram.com/bobdylan/?hl=en"><p>Instagram</p></a>
+        <a href="https://open.spotify.com/artist/74ASZWbe4lXaubB36ztrGX"><p>Spotify</p></a>
+        <a href="https://www.tiktok.com/@bobdylan"><p>Tiktok</p></a>
+    </div>
+    <img src="media/footerimg.png">
+</footer>
    
 
 
@@ -82,12 +104,12 @@ function toggleMode() {
     const btn = document.getElementById('modeBtn');
     document.body.classList.toggle('light');
     if (document.body.classList.contains('light')) {
-        btn.textContent = 'LSD MODE';
+        btn.textContent = 'Light Mode';
         btn.style.borderColor = 'white';
         btn.style.color = 'red';
 
     } else {
-        btn.textContent = 'LIGHT MODE';
+        btn.textContent = 'L-S-D Mode';
         btn.style.borderColor = 'white';
         btn.style.color = 'white';
     }

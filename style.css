@@ -151,6 +151,103 @@ body.light {
 }
 
 
+#s3 h2 {
+    font-size: 120px;
+    font-family: rye;
+    font-weight: 100;
+}
+
+.container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1700px;
+    flex-wrap: wrap;
+
+}
+
+
+.aktivitet {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  width: 800px;
+    height: 800px;
+    background-color: gray;
+    border: black solid 2px;
+    margin: 20px;
+}
+
+.aktivitet img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.5s ease;
+}
+
+.aktivitet:hover img {
+  filter: blur(8px);
+}
+
+.aktivitet .textoppå {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  font-size: 70px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: rye;
+  font-weight: 100;
+}
+
+.aktivitet:hover .textoppå {
+  opacity: 1;
+}
+
+
+
+
+
+
+footer {
+    
+    background-color: white;
+    margin-top: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+}
+footer a {
+    text-decoration: none;
+    color: black;
+    font-family: rye;
+    font-size: 20px;
+    font-weight: 100;
+    font-size: 50px;
+    margin: 2.5px;
+}
+
+footer h2 {
+    font-family: rye;
+    font-weight: 100;
+    font-size: 70px;
+    color: black;
+    text-align: left;
+}
+
+footer img {
+    width: 100%;
+    width: 1700px;
+    height: 100%;
+}
+.footercontainer {
+    
+}
 
 
 
@@ -181,8 +278,8 @@ body.light {
     height: 1300px;
     border: solid black 5px;
     background-color: gray;
-    position: relative;      /* mangler — trengs for at teksten posisjonerer seg inni */
-    overflow: hidden;        /* mangler — klipper teksten som er skjult */
+    position: relative;      
+    overflow: hidden;        
     transition: transform 0.3s ease;
 
 }
@@ -192,7 +289,7 @@ body.light {
     
 }
 .enkeltAlbum:hover {
-    transform: scale(1.05);  /* pop-effekten skal HER */
+    transform: scale(1.05);  
     overflow: visible;
 }
 
@@ -202,7 +299,7 @@ body.light {
 
 .enkeltAlbumText {
     position: absolute;
-    bottom: -150px;        /* a bit more since there's more text now */
+    bottom: -150px;        
     left: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
@@ -226,6 +323,174 @@ body.light {
 .album-year {
     margin: 4px 0 0;
     font-size: 50px;
-    color: rgba(255, 255, 255, 0.7);   /* slightly muted */
+    color: rgba(255, 255, 255, 0.7);   
 }
 
+
+/* spill page */
+
+
+#bg {
+    background-image: url(media/backgroundgame.png);
+    
+}
+
+/*info boks */ 
+.info-boks {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  padding: 1rem;
+  color: white;
+  cursor: pointer;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+  
+  transition: width 0.3s ease, height 0.3s ease;
+  overflow: hidden;
+}
+
+.info-boks.åpen {
+  width: 250px;
+  height: auto;
+  padding: 1.5rem;
+  border-radius: 16px;
+  width: 1000px;
+  height: 1000px;
+ 
+
+}
+
+.info-innhold {
+  display: none;
+  font-size: 70px;
+  line-height: 1.6;
+}
+
+.info-boks.åpen .info-innhold {
+  display: block;
+}
+
+.info-boks.åpen #infoTekst {
+  display: none;
+}
+/**/
+
+
+
+.containeroppe {
+    display: flex;
+    justify-content: space-around;
+    height: 400px;
+    flex-direction: column;
+}
+
+.containeroppe h2, h1 {
+    font-size: 150px;
+    font-family: rye;
+    font-weight: 100;
+}
+
+.knapper {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.knapper button {
+    width: 250px;
+    height: 250px;
+    border: black solid 2px;
+    border-radius: 50%;
+    font-size: 50px;
+}
+
+
+
+.containerkort {
+    display: flex;
+    width: 3000px;
+    border: black solid 5px;
+    justify-content: space-around;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.Kort {
+    background-color: gray;
+    width: 1000px;
+    height: 1300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 25px;
+}
+.Kort h1 {
+    font-size: 100px;
+}
+.Kort h2 {
+    font-family: rye;
+    font-size: 70px;
+    font-weight: 100;
+}
+
+.Kort {
+    background-color: gray;
+    width: 1000px;
+    height: 1300px;
+    border-radius: 25px;
+}
+
+#scoreDisplay {
+    font-size: 70px;
+}
+
+#feedback {
+    text-align: center;
+    font-size: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* tt/tours and tickets*/
+
+
+#b3 {
+    background-color: white;
+    background-image: none;
+}
