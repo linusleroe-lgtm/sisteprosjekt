@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 * {
     margin: 0;
@@ -144,6 +144,10 @@ body.light header {
 
 body.light nav a {
     color: black;
+}
+
+body.light h1 {
+    font-family: pacifico;
 }
 
 body.light {
